@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Convnet Kernel Size Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+      body {
+        margin: 0;
+        background: #FFF;
+      }
+      .convnet-calc-container {
+          width: 300px;
+          padding: 15px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+      .convnet-calc-item {
+        margin-bottom: 10px;
+      }
+      .convnet-calc-item-label {
+        width: 100px;
+        display: inline-block;
+      }
+      .convnet-calc-algo {
+        border: 1px solid #ddd;
+        padding: 5px;
+        margin-bottom: 30px;
+        color: #3333335e;
+        text-align: center;
+      }
+      .active-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ddd;
+        display: inline-block;
+      }
+      .active-indicator.active {
+        background: rgb(135, 197, 64);
+      }
+      .active-indicator:hover{
+        cursor: pointer;
+      }
+      .invalid-warning {
+        color: #fd7622;
+        font-size: 13px;
+        animation: fade 1s linear infinite;
+      }
+      .by-eeandrew {
+        font-size: 10px;
+        color: #3333335e;
+      }
+      .by-eeandrew a {
+        color: #3333335e;
+        text-decoration: underline;
+      }
+      .by-eeandrew a:hover {
+        cursor: pointer;
+      }
+      .invalid-warning.hide {
+        display: none;
+      }
+      @keyframes fade {
+        0% {opacity: 1;}
+        25% {opacity: 0.5;}
+        50% {opacity: 0.25;}
+        75% {opacity: 0.5;}
+        100% {opacity: 1}
+      }
+      .logo {
+        font-size: 14px;
+        color: #3333335e;
+      }
+
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+      <form class="convnet-calc-container">
+          <div class="convnet-calc-algo">
+            <div>
+                Convnet Kernel Size Calculator
+            </div>
+            <div>
+                (Size - Filter + 2*Padding)/Stride + 1
+            </div>
+          </div> 
+          <div class="convnet-calc-item">
+              <div class="active-indicator" id="sizeindicator"></div>
+              <text class="convnet-calc-item-label">Size</text>
+              <input id="size" type="number" value="28" min="1"/>
+          </div>
+          <div class="convnet-calc-item">
+              <div class="active-indicator" id="filterindicator"></div>
+              <text class="convnet-calc-item-label">Filter</text>
+              <input id="filter" type="number" value="3" min="1"/>
+          </div>
+          <div class="convnet-calc-item">
+              <div class="active-indicator" id="strideindicator"></div>
+              <text class="convnet-calc-item-label">Stride</text>
+              <input id="stride" type="number" value="1" min="1"/>
+          </div>
+          <div class="convnet-calc-item">
+              <div class="active-indicator" id="paddingindicator"></div>
+              <text class="convnet-calc-item-label">Padding</text>
+              <input id="padding" type="number" value="0" min="0"/>
+          </div>
+          <div class="convnet-calc-item">
+              <div class="active-indicator" id="outputindicator"></div>
+              <text class="convnet-calc-item-label">Output</text>
+              <input id="output" type="number" value="25" disable/>
+          </div>
+          <div class="invalid-warning hide" id="warning">
+             Invalid Combination 
+          </div>
+          <div class="by-eeandrew">
+            By <a id="gotohomepage" >eeandrew</a>
+          </div>  
+        </form>
+  </body>
+</html>
