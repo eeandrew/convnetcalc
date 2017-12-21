@@ -3,7 +3,7 @@ var ConvnetCalc = function() {
   this.filter = 3;
   this.stride = 1;
   this.padding = 0;
-  this.output = 25;
+  this.output = 26;
   this.target = 'output';
   this.elements = ['size','filter','stride','padding','output']
 }
@@ -28,7 +28,7 @@ ConvnetCalc.prototype.validateValues = function() {
   }
 }
 
-//⌊(Size - Filter + 2*Padding)/Stride)⌋+1
+//(Size - Filter + 2*Padding)/Stride)+1
 ConvnetCalc.prototype.onItemValueChange = function(key,value) {
   this[key] = value;
   if(this.target == 'output'){
